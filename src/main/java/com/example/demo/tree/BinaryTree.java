@@ -10,10 +10,10 @@ import java.util.Queue;
 public class BinaryTree<E> implements BinaryTreeInfo {
 
     //节点数量
-    private int size;
+    public int size;
 
     //根节点
-    private Node<E> root;
+    public Node<E> root;
 
     /**
      * 返回元素数量
@@ -44,13 +44,13 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     //内部节点类
     public static class Node<E> {
         //元素值
-        E element;
+        public E element;
         //左节点
-        Node<E> left;
+        public Node<E> left;
         //右节点
-        Node<E> right;
+        public Node<E> right;
         //父节点
-        Node<E> parent;
+        public Node<E> parent;
 
         public Node(E element, Node<E> parent) {
             this.element = element;
