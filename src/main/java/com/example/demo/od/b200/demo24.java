@@ -1,11 +1,8 @@
 package com.example.demo.od.b200;
 
-
-//最佳的出牌方法
-public class demo21 {
+//数字序列比大小
+public class demo24 {
     public static void main(String[] args) {
 
     }
-
-
 }
