@@ -1,4 +1,4 @@
-package com.example.demo.tree.segmentTree
+package com.example.demo.tree.segmentTree;
 
 /// Leetcode 307. Range Sum Query - Mutable
 /// https://leetcode.com/problems/range-sum-query-mutable/description/

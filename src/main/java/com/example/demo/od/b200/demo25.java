@@ -26,8 +26,13 @@ public class demo25 {
         for (int child : arr) {
             //当前小朋友开心的离开
             if (play.contains(child)){
-                remain ++;
                 play.remove(play.indexOf(child));
+                //下一个等待的小朋友开始玩
+                if (wait.size() > 0){
+                    play.add(wait.removeFirst());
+                }else {
+                    remain ++;
+                }
                 continue;
             }
 
@@ -42,17 +47,9 @@ public class demo25 {
 
             //当前小朋友刚来来
             if (remain > 0){
-
                 //不需要排队直接完上了
-                if (wait.size() == 0){
-                    play.add(child);
-                }else {
-                    //需要排队
-                    wait.add(child);
-                    wait.removeFirst();
-                }
+                play.add(child);
                 remain --;
-                //需要排队
                 continue;
             }
             //刚来，但是没有没有空的摇摇车

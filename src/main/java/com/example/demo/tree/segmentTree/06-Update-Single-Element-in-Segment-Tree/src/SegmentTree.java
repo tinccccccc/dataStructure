@@ -1,4 +1,4 @@
-package com.example.demo.tree.segmentTree
+package com.example.demo.tree.segmentTree;
 
 public class SegmentTree<E> {
 
