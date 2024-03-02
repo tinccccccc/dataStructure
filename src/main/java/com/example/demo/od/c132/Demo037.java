@@ -37,6 +37,7 @@ public class Demo037 {
     }
 
     public static void buildtree(String[] strs){
+
         String sign = strs[0];
         String directory = strs[1];
 
@@ -68,4 +69,5 @@ public class Demo037 {
             this.name = name;
         }
     }
+
 }
