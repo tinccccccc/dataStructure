@@ -1,10 +1,12 @@
 package com.example.demo.od.c132;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 /**
- * 执行任务赚积分 这题当时没写出来
+ * 执行任务赚积分 这题当时没写出来， 优先级队列
  */
 public class Demo054 {
     public static void main(String[] args){
@@ -19,31 +21,33 @@ public class Demo054 {
     }
 
     public static int getResult(int[][] nums, int time){
-        nums = Arrays.stream(nums).sorted((o1, o2) -> {
-            if (o1[0] == o2[0]) {
-                return o2[1] - o1[1];
-            } else {
-                return o1[0] - o2[0];
-            }
-        }).toArray(int[][]::new);
-        backtrack(nums,0,time,0,1);
-        return max;
-    }
-    static int max = 0;
-    public static void backtrack(int[][] nums, int start, int time, int sum, int cur){
-        max = Math.max(max,sum);
-        if (start == nums.length){
-            return;
-        }
-        if (cur > time) return;
-        for (int i = start; i < nums.length; i++) {
-            int need = nums[i][0];
-            int fen = nums[i][1];
-            if (i != start && need == nums[i-1][0]) continue;
-            if (need > time) return;
+        int[][] array = Arrays.stream(nums).sorted(Comparator.comparingInt(a -> a[0])).toArray(int[][]::new);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a));
+        int res = 0;
+        int cur = 1;
+        for (int[] item : array) {
+            int need = item[0];
+            int fen = item[1];
             if (need >= cur){
-                backtrack(nums,i + 1, time, sum + fen, cur + 1);
+                //说明可以执行
+                queue.add(fen);
+                cur ++;
+                res += fen;
+            }else {
+                //说明超时了
+                if (queue.size() == 0) continue;
+                if (queue.peek() < fen){
+                    Integer pre = queue.poll();
+                    res += fen;
+                    res -= pre;
+                    queue.add(fen);
+                }
             }
         }
+        while (time < queue.size()){
+            Integer pre = queue.poll();
+            res -= pre;
+        }
+        return res;
     }
 }

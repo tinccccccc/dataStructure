@@ -1,26 +1,22 @@
 package com.example;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.*;
 
 public class Test {
 
     public static void main(String[] args){
-//        Vector<User> vector = new Vector<>(5);
-//        vector.add(new User());
-//        vector.add(new User());
-//        Iterator<User> viterator = vector.iterator();
-//        System.out.println(viterator.next());
-//        System.out.println(viterator.next());
-//        System.out.println(viterator.next());
-        System.out.println("----------------");
-        ArrayList<User> arrayList = new ArrayList<>(5);
-        arrayList.add(new User());
-        arrayList.add(new User());
-        Iterator<User> aiterator = arrayList.iterator();
-        System.out.println(aiterator.next());
-        System.out.println(aiterator.next());
-        System.out.println(aiterator.next());
+
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(0);
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.add(4);
+        linkedList.add(2,9);
+        StringJoiner joiner = new StringJoiner("   ");
+        for (Integer a : linkedList) {
+            joiner.add(Integer.toString(a));
+        }
+        System.out.println(joiner);
     }
 }
