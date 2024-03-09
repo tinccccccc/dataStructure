@@ -5,13 +5,39 @@ import java.util.*;
 public class Test {
 
     public static void main(String[] args){
-        int res = 2;
-        int r = 2;
-        for (int i = 0; i < 29; i++) {
-            System.out.println(r ++);
-            res *= 2;
+        System.out.println(lengthOfLongestSubstring("tmmzuxt"));
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
+        char[] arr = s.toCharArray();
+        Map<Character,Integer> map = new HashMap<>();
+        int max = Integer.MIN_VALUE;
+        int left = 0, right = 0;
+        int len = 0;
+        while(right < arr.length){
+            char c = arr[right];
+            right ++;
+            int cnt = map.getOrDefault(c, 0);
+            len ++;
+
+            if(cnt == 0){
+                max = Math.max(max,len);
+                map.put(c,cnt + 1);
+            }else {
+                while(arr[left] != c){
+                    int count = map.getOrDefault(arr[left], 0);
+                    if (count > 0){
+                        map.put(arr[left], 0);
+                    }
+                    left ++;
+                    len --;
+                }
+                len --;
+                left ++;
+            }
+
         }
-        System.out.println(res +1);
+        return max == Integer.MIN_VALUE ? 0 : max;
     }
 
     private static int calculateSize(int numElements) {
