@@ -4,16 +4,17 @@ import com.example.demo.tree.mytree.util.BinaryTrees;
 
 public class Test {
     public static void main(String[] args){
-        BinarySearchTree<Integer> searchTree = new BinarySearchTree<>();
-        searchTree.add(1);
-        searchTree.add(2);
-        searchTree.add(3);
-        searchTree.add(7);
-        searchTree.add(9);
-        searchTree.add(5);
-        searchTree.add(4);
-        searchTree.add(6);
-        searchTree.remove(7);
-        BinaryTrees.print(searchTree);
+        BinarySearchTree<Integer> avl = new AVLTree<>();
+        avl.add(1);
+        avl.add(3);
+        avl.add(5);
+        avl.add(2);
+        avl.add(4);
+        avl.add(9);
+        avl.add(8);
+        avl.remove(2);
+        avl.remove(8);
+        avl.remove(9);
+        BinaryTrees.print(avl);
     }
 }

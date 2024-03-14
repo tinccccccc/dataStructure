@@ -62,14 +62,12 @@ public class BinarySearchTree<E> implements Tree<E>, BinaryTreeInfo {
         }
     }
 
-
-
     @Override
     public void remove(E e) {
         remove(node(e));
     }
 
-    public void remove(Node<E> node){
+    private void remove(Node<E> node){
         if (node == null) return;
         size --;
         //删除度为2的节点
@@ -160,7 +158,7 @@ public class BinarySearchTree<E> implements Tree<E>, BinaryTreeInfo {
      * 获取 node 节点的后驱节点
      * 中序遍历的后一个节点
      */
-    private Node<E> successor(Node<E> node){
+    public Node<E> successor(Node<E> node){
         if (node == null)
             return null;
 
@@ -206,11 +204,15 @@ public class BinarySearchTree<E> implements Tree<E>, BinaryTreeInfo {
         return myNode.val + "_p(" + parentStr + ")";
     }
 
-    private static class Node<E>{
-        E val;
-        Node<E> left;
-        Node<E> right;
-        Node<E> parent;
+    public static class Node<E>{
+        public E val;
+        public Node<E> left;
+        public Node<E> right;
+        public Node<E> parent;
+
+        Node(){
+
+        }
 
         Node(E val){
             this(val,null,null,null);
