@@ -125,7 +125,6 @@ public class AVLTree<E> extends BinarySearchTree<E> {
                 updateHeight(node);
             }else {
                 reBalance(node);
-                break;
             }
         }
     }
