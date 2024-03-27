@@ -16,7 +16,7 @@ public class BinarySearchTree<E> implements Tree<E>, BinaryTreeInfo {
 
     Comparator<E> comparator;
 
-    BinarySearchTree(){
+    public BinarySearchTree(){
 
     }
 
